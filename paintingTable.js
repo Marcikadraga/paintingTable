@@ -43,6 +43,7 @@ class Field {
     // }
 
     constructor(FieldPosition) {
+
         this.fieldSize = 20;
         this.field = document.createElement('canvas');
         this.field.id =FieldPosition.id;
@@ -51,7 +52,7 @@ class Field {
         this.field.style.left = this.fieldSize * FieldPosition.x + "px";
         this.field.style.top = this.fieldSize * FieldPosition.y + "px";
         this.field.style.position = "absolute";
-        this.fieldPosition=document.getElementById("snakeTable").appendChild(this.field);
+        this.fieldPosition=document.getElementById("table").appendChild(this.field);
     }
 }
 class Table {
@@ -104,6 +105,19 @@ class Table {
             }
         }
     }
+}
+class ColorTable{
+     colors=[
+         ["#F5D8D8","#FFD0DE","#FFC8F2","#FFC5FF","#CD96CE"],
+         ["#EA2828","#C90011","#A80000","#880000","#6A0000"],
+         ["#E68CE7","#BD66BF","#964299","#701B74","#4B0052"],
+         ["#8C8CE7","#6A6DC4","#484FA2","#233381","#001A62"],
+         ["#A5FFF3","#70C9BE","#3A968C","#00655D","#003831"],
+         ["#7ED19A","#54A672","#287D4C","#005629","#003105"],
+         ["#F0E897","#BCB567","#8A853A","#5A580B","#302F00"],
+         ["#FFD300","#CAA400","#967800","#674F00","#432700"],
+         ["#FF6400","#D64100","#AE1900","#890000","#670000"]
+     ]
 }
 class Main
 {
