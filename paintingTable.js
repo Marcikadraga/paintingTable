@@ -106,9 +106,24 @@ class Table {
         }
     }
 }
+class ColorFiled{
+    constructor(y,x,id) {
+
+        this.colorFieldSize = 20;
+        this.colorField = document.createElement('canvas');
+        this.colorField.id =id;
+        this.colorField.style.width = this.colorFieldSize + "px";
+        this.colorField.style.height = this.colorFieldSize + "px";
+        this.colorField.style.left = this.colorFieldSize * x + "px";
+        this.colorField.style.top = this.colorFieldSize * y + "px";
+        this.colorField.style.position = "absolute";
+        document.getElementById("colorPalette").appendChild(this.colorField);
+    }
+}
 class ColorTable{
-     colors=[
-         ["#F5D8D8","#FFD0DE","#FFC8F2","#FFC5FF","#CD96CE"],
+    colorArray=[];
+    colors=[
+         
          ["#EA2828","#C90011","#A80000","#880000","#6A0000"],
          ["#E68CE7","#BD66BF","#964299","#701B74","#4B0052"],
          ["#8C8CE7","#6A6DC4","#484FA2","#233381","#001A62"],
@@ -118,14 +133,35 @@ class ColorTable{
          ["#FFD300","#CAA400","#967800","#674F00","#432700"],
          ["#FF6400","#D64100","#AE1900","#890000","#670000"]
      ];
+    //  constructor(yTableSize, xTableSize) {
+    //     this.colorArray=[];
+    //     this.yTableSize = yTableSize;
+    //     this.xTableSize = xTableSize;
+    // }
+
+
+    DisplayTheTable() {
+        var id =5000;
+        for (var i = 0; i <this.colors.length ; i++) {
+            this.colorArray.push([]);
+            for (var j = 0; j < this.colors[0].length; j++) {
+                this.colorArray.push(new ColorFiled(i,j,id));
+                document.getElementById(id).style.backgroundColor=this.colors[i][j];
+                id++
+            }
+        }
+        
+    }
 }
 class Main
 {
-    // startTheProgram(){
-    //     var t = new Table(11, 11);
-    //     t.DisplayTheTable();
-    // }
+    startTheProgram(){
+        var t = new Table(11, 11);
+        t.DisplayTheTable();
+    }
     
 }
-// var m=new Main();
-// m.startTheProgram();
+var m=new Main();
+m.startTheProgram();
+var colorTable=new ColorTable();
+colorTable.DisplayTheTable();
