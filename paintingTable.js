@@ -117,15 +117,15 @@ class ColorTable{
          ["#F0E897","#BCB567","#8A853A","#5A580B","#302F00"],
          ["#FFD300","#CAA400","#967800","#674F00","#432700"],
          ["#FF6400","#D64100","#AE1900","#890000","#670000"]
-     ]
+     ];
 }
 class Main
 {
-    startTheProgram(){
-        var t = new Table(11, 11);
-        t.DisplayTheTable();
-    }
+    // startTheProgram(){
+    //     var t = new Table(11, 11);
+    //     t.DisplayTheTable();
+    // }
     
 }
-var m=new Main();
-m.startTheProgram();
+// var m=new Main();
+// m.startTheProgram();
