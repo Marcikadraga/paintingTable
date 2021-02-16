@@ -46,11 +46,6 @@ class Table {
                 document.getElementById(i).style.backgroundColor = "#EBEFF0";
             }
         }
-        // document.getElementById("table").style.height=this.yTableSize*10+"px";
-        // document.getElementById("drawingTable").style.height=this.yTableSize*10+"px";
-        // document.getElementById("drawingTable").style.width =this.xTableSize*10+"px";
-        
-        
     }
 }
 class ColorFiled {
@@ -95,9 +90,6 @@ class ColorTable {
                 id++
             }
         }
-        // document.getElementById("colorPalette").style.height=this.colors.length*20+"px";
-        // document.getElementById("colorPalette").style.width=this.colors[0].length*20+"px";
-
     }
 }
 class Main {

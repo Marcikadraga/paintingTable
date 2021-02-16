@@ -1,13 +1,18 @@
+body{
+    background: #e6dada; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #e6dada, #274046); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #e6dada, #274046);
+}
 #table{
     
     width: 1400px;
     height: 900px;
-    border: 5px solid black;
+    border: 5px solid white;
     border-radius: 5px;
     margin: 13px auto;
     
     position: relative;
-    background-color: grey;
+  
 }
 #status{
     width: 700px;
@@ -15,21 +20,21 @@
     position:absolute;
     left:25%;
     top:0%;
-    background-color: grey;
+    background-color: transparent;
 }
 #options{
     width:200px;
     height:700px;
     position:absolute;
     top:10%;
-    left:1%;
-    background-color: grey; 
+    left:2%;
+    background-color: transparent;
     color:white;
 }
 #drawingTable{
     width:700px;
     height: 700px; 
-    border: 5px solid black;
+    border: 5px solid white;
     border-radius: 10px;
     background-color: grey; 
     position:absolute;
@@ -44,7 +49,7 @@
     border-radius: 10px;
     width:200px;
     height: 320px;
-    border: 5px solid black;
+    border: 5px solid white;
     background-color: grey;
 }
 body {font-family: Arial, Helvetica, sans-serif;}
