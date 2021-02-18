@@ -6,6 +6,8 @@ class FieldPosition {
         this.id = id;
     }
 }
+
+
 class Field {
 
     constructor(FieldPosition) {
@@ -65,7 +67,6 @@ class ColorTable {
         ];
     }
 
-    
 
 
     DisplayTheColorTable() {
@@ -81,13 +82,24 @@ class ColorTable {
                 colorField.style.left = "5px";
                 colorField.style.top = "5px";
                 colorField.style.backgroundColor = this.colors[i][j]
+
                 document.getElementById("colorPalette").appendChild(colorField);
                 id++;
+                colorField.onclick = function () {
+                    for (var i = 5000; i < 5040; i++) {
+                        document.getElementById(i).style.borderColor = "white";
+                    }
+                    //this.style.borderColor = "black"
+                    this.style.border = "1px solid black";
+                }
             }
         }
     }
-    
+
 }
+
+
+
 
 class Main {
     startTheProgram() {
@@ -95,7 +107,6 @@ class Main {
         t.DisplayTheTable();
         var colorTable = new ColorTable();
         colorTable.DisplayTheColorTable();
-        // colorTable.SelectColorField();
     }
 }
 var m = new Main();
