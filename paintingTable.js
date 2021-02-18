@@ -19,9 +19,12 @@ class Field {
         this.field.style.top = this.fieldSize * FieldPosition.y + "px";
         this.field.style.position = "absolute";
         this.fieldPosition = document.getElementById("drawingTable").appendChild(this.field);
+        this.field.onclick = function () { this.style.backgroundColor = "red" }
+
     }
 }
 class Table {
+
 
     constructor(yTableSize, xTableSize) {
         this.array = [];
@@ -43,31 +46,14 @@ class Table {
                 document.getElementById(i).style.backgroundColor = "white";
             }
             else {
-                document.getElementById(i).style.backgroundColor = "#EBEFF0";
+                document.getElementById(i).style.backgroundColor = "#B6A999";
             }
         }
     }
 }
-class ColorFiled {
-    constructor(FieldPosition) {
-
-        this.colorFieldSize = 40;
-        this.colorField = document.createElement('canvas');
-        this.colorField.id = FieldPosition.id;
-        this.colorField.style.width = this.colorFieldSize + "px";
-        this.colorField.style.height = this.colorFieldSize + "px";
-        this.colorField.style.left = this.colorFieldSize * FieldPosition.x + "px";
-        this.colorField.style.top = this.colorFieldSize * FieldPosition.y + "px";
-        this.colorField.style.position = "absolute";
-        document.getElementById("colorPalette").appendChild(this.colorField);
-    }
-}
 class ColorTable {
-
-
-    constructor() {
-        this.colorFields = [];
-        this.colors = [
+    get colors() {
+        return [
             ["#EA2828", "#C90011", "#A80000", "#880000", "#6A0000"],
             ["#E68CE7", "#BD66BF", "#964299", "#701B74", "#4B0052"],
             ["#8C8CE7", "#6A6DC4", "#484FA2", "#233381", "#001A62"],
@@ -79,27 +65,40 @@ class ColorTable {
         ];
     }
 
+    
+
 
     DisplayTheColorTable() {
         var id = 5000;
-        for (var i = 0; i < this.colors.length; i++) {
-            this.colorFields.push([]);
-            for (var j = 0; j < this.colors[0].length; j++) {
-                this.colorFields.push(new ColorFiled(new FieldPosition( i, j, id)));
-                document.getElementById(id).style.backgroundColor = this.colors[i][j];
-                id++
+        for (var i = 0; i < 8; i++) {
+            for (var j = 0; j < 5; j++) {
+                var colorField = document.createElement('canvas');
+                colorField.id = id;
+                colorField.style.position = "relative";
+                colorField.style.width = "40px"
+                colorField.style.height = "40px"
+                colorField.style.border = "1px solid white";
+                colorField.style.left = "5px";
+                colorField.style.top = "5px";
+                colorField.style.backgroundColor = this.colors[i][j]
+                document.getElementById("colorPalette").appendChild(colorField);
+                id++;
             }
         }
     }
+    
 }
+
 class Main {
     startTheProgram() {
         var t = new Table(35, 35);
         t.DisplayTheTable();
         var colorTable = new ColorTable();
         colorTable.DisplayTheColorTable();
+        // colorTable.SelectColorField();
     }
 }
 var m = new Main();
 m.startTheProgram();
+
 

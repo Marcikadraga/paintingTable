@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,36 @@
     <script src="paintingTable.js" defer></script>
     <link rel="stylesheet" href="paintingTable.css">
     <title>Document</title>
-</head>
-<body>
 
+</head>
+
+<body>
     <div id="table">
-        <div id="status"></div>
+        <div id="status">
+            <canvas id="statusCanvas1"></canvas>
+            <canvas id="statusCanvas2"></canvas>
+            <canvas id="statusCanvas3"></canvas>
+            <canvas id="statusCanvas4"></canvas>
+            <canvas id="statusCanvas5"></canvas>
+
+
+
+        </div>
         <div id="options">
             <br>
-            
-                <input type="text" id="fname"  placeholder="X:">
-            
-                
-                <input type="text" id="lname"  placeholder="Y:">
-                <br>
-                <button class="button button2">Create</button>
-                
+
+            <input type="text" id="fname" placeholder="X:">
+
+
+            <input type="text" id="lname" placeholder="Y:">
+            <br>
+            <button class="button button2">Create</button>
+
         </div>
         <div id="drawingTable"></div>
         <div id="colorPalette"></div>
     </div>
-    
+
 </body>
+
 </html>

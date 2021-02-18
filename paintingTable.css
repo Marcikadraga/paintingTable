@@ -3,6 +3,7 @@ body{
     background: -webkit-linear-gradient(to right, #3c3b3f, #605c3c); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #3c3b3f, #605c3c); 
 }
+
 #table{
     
     width: 1400px;
@@ -12,15 +13,25 @@ body{
     margin: 13px auto;
     /* background-color: grey; */
     position: relative;
-  
-}
+  }
+
 #status{
     width: 700px;
-    height: 100px;
-    position:absolute;
+    height: 85px;
+    position:relative;
     left:25%;
     top:0%;
+    
     background-color: transparent;
+}
+#statusCanvas1,#statusCanvas2,#statusCanvas3,#statusCanvas4,#statusCanvas5{
+    background-color: transparent;
+    position:relative;
+    width:40px;
+    height:40px;
+    border:1px solid;
+    left:2px;
+    top:30px
 }
 #options{
     width:200px;
@@ -29,7 +40,8 @@ body{
     top:10%;
     left:2%;
     background-color: transparent;
-    color:white;
+    
+    
 }
 #drawingTable{
     width:700px;
@@ -47,21 +59,22 @@ body{
     right: 2%;
     top:10%;
     border-radius: 10px;
-    width:200px;
-    height: 320px;
-    border: 5px solid white;
-    background-color: grey;
+    width:220px;
+    height: 375px;
+    border: 5px solid  transparent;
+    background-color: transparent;
 }
-body {font-family: Arial, Helvetica, sans-serif;}
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+    body {
+    font-family: Arial, Helvetica, sans-serif;}
+    input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
 }
 .button {
     background-color: transparent;
@@ -81,7 +94,7 @@ input[type=text], select, textarea {
   .button2:hover {
     box-shadow: 0 12px 16px 0 white,0 17px 50px 0 grey;
   }
-
+   
 
 
 
