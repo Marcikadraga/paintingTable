@@ -24,8 +24,8 @@ body{
     
     background-color: transparent;
 }
-#statusCanvas1,#statusCanvas2,#statusCanvas3,#statusCanvas4,#statusCanvas5{
-    background-color: transparent;
+#statusCanvas1{
+    background-color: black;
     position:relative;
     width:40px;
     height:40px;
@@ -48,7 +48,7 @@ body{
     height: 700px; 
     border: 5px solid white;
     border-radius: 10px;
-    background-color: grey; 
+    background-color: black; 
     position:absolute;
     left:25%;
     top:10%;

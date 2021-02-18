@@ -6,8 +6,11 @@ class FieldPosition {
         this.id = id;
     }
 }
-
-
+class CurrentColor {
+    constructor(color) {
+        this.color = color;
+    }
+}
 class Field {
 
     constructor(FieldPosition) {
@@ -21,7 +24,8 @@ class Field {
         this.field.style.top = this.fieldSize * FieldPosition.y + "px";
         this.field.style.position = "absolute";
         this.fieldPosition = document.getElementById("drawingTable").appendChild(this.field);
-        this.field.onclick = function () { this.style.backgroundColor = "red" }
+
+        this.field.onclick = function () { this.style.backgroundColor = document.getElementById("statusCanvas1").style.backgroundColor }
 
     }
 }
@@ -67,32 +71,36 @@ class ColorField {
         ];
     }
     constructor(i, j, id) {
-        this.colorField = document.createElement('canvas');
-        this.colorField.id = id;
-        this.colorField.style.position = "relative";
-        this.colorField.style.width = "40px"
-        this.colorField.style.height = "40px"
-        this.colorField.style.border = "1px solid white";
-        this.colorField.style.left = "5px";
-        this.colorField.style.top = "5px";
-        this.colorField.style.backgroundColor = this.colors[i][j]
-        document.getElementById("colorPalette").appendChild(this.colorField);
-        this.colorField.onclick = function () {
-            for (var i = 5000; i < 5040; i++) {
+
+        var colorField = document.createElement('canvas');
+        colorField.id = id;
+        colorField.style.position = "relative";
+        colorField.style.width = "40px"
+        colorField.style.height = "40px"
+        colorField.style.border = "1px solid white";
+        colorField.style.left = "5px";
+        colorField.style.top = "5px";
+        colorField.style.backgroundColor = this.colors[i][j]
+
+        document.getElementById("colorPalette").appendChild(colorField);
+        colorField.onclick = function () {
+            for (var i = 5000; i <5040; i++) {
                 document.getElementById(i).style.borderColor = "white";
             }
             this.style.border = "1px solid black";
+            var lofasz=this.style.backgroundColor;
+            document.getElementById("statusCanvas1").style.backgroundColor=lofasz;
         }
     }
 
-    
+
 }
 class ColorTable {
     DisplayTheColorTable() {
         var id = 5000;
         for (var i = 0; i < 8; i++) {
             for (var j = 0; j < 5; j++) {
-                var c=new ColorField(i, j, id)
+                var c = new ColorField(i, j, id)
                 console.log(c.colors[0].length)
                 id++;
             }
