@@ -53,7 +53,7 @@ class Table {
         }
     }
 }
-class ColorTable {
+class ColorField {
     get colors() {
         return [
             ["#EA2828", "#C90011", "#A80000", "#880000", "#6A0000"],
@@ -66,40 +66,39 @@ class ColorTable {
             ["#FF6400", "#D64100", "#AE1900", "#890000", "#670000"]
         ];
     }
+    constructor(i, j, id) {
+        this.colorField = document.createElement('canvas');
+        this.colorField.id = id;
+        this.colorField.style.position = "relative";
+        this.colorField.style.width = "40px"
+        this.colorField.style.height = "40px"
+        this.colorField.style.border = "1px solid white";
+        this.colorField.style.left = "5px";
+        this.colorField.style.top = "5px";
+        this.colorField.style.backgroundColor = this.colors[i][j]
+        document.getElementById("colorPalette").appendChild(this.colorField);
+        this.colorField.onclick = function () {
+            for (var i = 5000; i < 5040; i++) {
+                document.getElementById(i).style.borderColor = "white";
+            }
+            this.style.border = "1px solid black";
+        }
+    }
 
-
-
+    
+}
+class ColorTable {
     DisplayTheColorTable() {
         var id = 5000;
         for (var i = 0; i < 8; i++) {
             for (var j = 0; j < 5; j++) {
-                var colorField = document.createElement('canvas');
-                colorField.id = id;
-                colorField.style.position = "relative";
-                colorField.style.width = "40px"
-                colorField.style.height = "40px"
-                colorField.style.border = "1px solid white";
-                colorField.style.left = "5px";
-                colorField.style.top = "5px";
-                colorField.style.backgroundColor = this.colors[i][j]
-
-                document.getElementById("colorPalette").appendChild(colorField);
+                var c=new ColorField(i, j, id)
+                console.log(c.colors[0].length)
                 id++;
-                colorField.onclick = function () {
-                    for (var i = 5000; i < 5040; i++) {
-                        document.getElementById(i).style.borderColor = "white";
-                    }
-                    //this.style.borderColor = "black"
-                    this.style.border = "1px solid black";
-                }
             }
         }
     }
-
 }
-
-
-
 
 class Main {
     startTheProgram() {
