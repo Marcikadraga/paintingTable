@@ -39,13 +39,13 @@ class Table {
         this.array = [];
         this.yTableSize = yTableSize;
         this.xTableSize = xTableSize;
-        
+
     }
 
 
     DisplayTheTable() {
         var id = 0;
-        var fieldsize=20
+        var fieldsize = 20
         for (var i = 0; i < this.yTableSize; i++) {
             this.array.push([]);
             for (var j = 0; j < this.xTableSize; j++) {
@@ -59,8 +59,8 @@ class Table {
                 document.getElementById(i).style.backgroundColor = "#C8E0E1";
             }
         }
-        document.getElementById("drawingTable").style.height=this.yTableSize*20+"px";
-        document.getElementById("drawingTable").style.width=this.xTableSize*20+"px";
+        document.getElementById("drawingTable").style.height = this.yTableSize * 20 + "px";
+        document.getElementById("drawingTable").style.width = this.xTableSize * 20 + "px";
 
     }
 
@@ -70,7 +70,7 @@ class Table {
 class ColorField {
     get colors() {
         return [
-            ["#FFFFFF", "#C8E0E1", "#A7BABA", "#8FA2A2", "#708181"],
+            ["#FFFFFF", "#D8D4D4", "#C4C1C1", "#9F9B9B", "#747272"],
             ["#627070", "#495353", "#353D3D", "#272E2E", "#0B0D0D"],
             ["#EA2828", "#C90011", "#A80000", "#880000", "#6A0000"],
             ["#E68CE7", "#BD66BF", "#964299", "#701B74", "#4B0052"],
@@ -121,16 +121,64 @@ class ColorTable {
 
 class Main {
     startTheProgram() {
-        var t = new Table(27, 25);
+        lofasz("myRange0", "demo0");
+        lofasz("myRange1", "demo1");
+
+        document.getElementById("clickMe").onclick = function () {
+            var x = document.getElementById("demo0").innerHTML;
+            var y = document.getElementById("demo1").innerHTML;
+            var t = new Table(y, x);
+            t.DisplayTheTable(); };
 
 
 
-        t.DisplayTheTable();
+
+        // var x = document.getElementById("demo0").innerHTML;
+        // var y = document.getElementById("demo1").innerHTML;
+        // var t = new Table(y, x);
+
+
+
+        // t.DisplayTheTable();
         var colorTable = new ColorTable();
         colorTable.DisplayTheColorTable();
+
+
+
+        // doFunction()
+        // {
+        //     var x = document.getElementById("demo0").innerHTML;
+        //     var y = document.getElementById("demo1").innerHTML;
+        //     var t = new Table(y, x);
+        //     t.DisplayTheTable();
+        // }
+
+
+        
+
+
     }
 }
 var m = new Main();
 m.startTheProgram();
+
+
+
+
+function lofasz(myRange, demo) {
+
+    var slider = document.getElementById(myRange);
+    var output = document.getElementById(demo);
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+
+}
+
+console.log(document.getElementById("demo1").innerHTML)
+
+
 
 

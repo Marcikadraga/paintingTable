@@ -1,7 +1,7 @@
 body{
-    background: #232526;  /* fallback for old browsers */
-background: -webkit-linear-gradient( #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient( #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #232526;  
+background: -webkit-linear-gradient( #414345, #232526);  
+background: linear-gradient( #414345, #232526); 
 
 }
 
@@ -48,7 +48,7 @@ background: linear-gradient( #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16
     height: 700px; 
     border: 5px solid white;
     border-radius: 10px;
-    background-color: black; 
+    background-color: transparent; 
     position:absolute;
     left:25%;
     top:10%;
@@ -93,6 +93,92 @@ background: linear-gradient( #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16
   }
   .button2:hover {
     box-shadow: 0 12px 16px 0 white,0 17px 50px 0 grey;
+  }
+  
+
+
+
+
+
+  .slidecontainer0 {
+    width: 100%;
+  }
+  
+  .slider0 {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider0:hover {
+    opacity: 1;
+  }
+  
+  .slider0::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .slider0::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+  
+
+
+
+  .slidecontainer1 {
+    width: 100%;
+  }
+  
+  .slider1 {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider1:hover {
+    opacity: 1;
+  }
+  
+  .slider1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .slider1::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
   }
    
 
