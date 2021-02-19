@@ -118,66 +118,59 @@ class ColorTable {
         }
     }
 }
+class Options {
+    SetTheRangeSlider() {
+        var slider0 = document.getElementById("myRange0");
+        var output0 = document.getElementById("demo0");
+        output0.innerHTML = slider0.value;
+        slider0.oninput = function () {
+            output0.innerHTML = this.value;
+        }
 
-class Main {
-    startTheProgram() {
-        lofasz("myRange0", "demo0");
-        lofasz("myRange1", "demo1");
+        var slider1 = document.getElementById("myRange1");
+        var output1 = document.getElementById("demo1");
+        output1.innerHTML = slider1.value;
+        slider1.oninput = function () {
+            output1.innerHTML = this.value;
+        }
+        this.CreateNewTable();
+    }
 
+    CreateNewTable(){
         document.getElementById("clickMe").onclick = function () {
+            var canvasesLength=document.getElementById("drawingTable").getElementsByTagName("canvas").length;
+            for(var i=0;i<canvasesLength;i++)
+            {
+                document.getElementById(i).remove();
+            }
+
             var x = document.getElementById("demo0").innerHTML;
             var y = document.getElementById("demo1").innerHTML;
             var t = new Table(y, x);
-            t.DisplayTheTable(); };
+            t.DisplayTheTable();
+        };
+    }    
+}
+ 
+class Main {
 
-
-
-
-        // var x = document.getElementById("demo0").innerHTML;
-        // var y = document.getElementById("demo1").innerHTML;
-        // var t = new Table(y, x);
-
-
-
-        // t.DisplayTheTable();
+    startTheProgram() {
+        
         var colorTable = new ColorTable();
         colorTable.DisplayTheColorTable();
-
-
-
-        // doFunction()
-        // {
-        //     var x = document.getElementById("demo0").innerHTML;
-        //     var y = document.getElementById("demo1").innerHTML;
-        //     var t = new Table(y, x);
-        //     t.DisplayTheTable();
-        // }
-
-
-        
-
-
+        var options = new Options();
+        options.SetTheRangeSlider();
     }
 }
+
 var m = new Main();
 m.startTheProgram();
 
 
 
 
-function lofasz(myRange, demo) {
 
-    var slider = document.getElementById(myRange);
-    var output = document.getElementById(demo);
-    output.innerHTML = slider.value;
 
-    slider.oninput = function () {
-        output.innerHTML = this.value;
-    }
-
-}
-
-console.log(document.getElementById("demo1").innerHTML)
 
 
 
