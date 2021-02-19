@@ -6,11 +6,6 @@ class FieldPosition {
         this.id = id;
     }
 }
-class CurrentColor {
-    constructor(color) {
-        this.color = color;
-    }
-}
 class FieldSize {
     constructor(fieldSize) {
         this.fieldSize = fieldSize;
@@ -19,19 +14,15 @@ class FieldSize {
 class Field {
 
     constructor(FieldPosition, FieldSize) {
-
-        // this.fieldSize = 20;
-        this.field = document.createElement('canvas');
-        this.field.id = FieldPosition.id;
-        this.field.style.width = FieldSize.fieldSize + "px";
-        this.field.style.height = FieldSize.fieldSize + "px";
-        this.field.style.left = FieldSize.fieldSize * FieldPosition.x + "px";
-        this.field.style.top = FieldSize.fieldSize * FieldPosition.y + "px";
-        this.field.style.position = "absolute";
-        this.fieldPosition = document.getElementById("drawingTable").appendChild(this.field);
-
-        this.field.onclick = function () { this.style.backgroundColor = document.getElementById("statusCanvas1").style.backgroundColor }
-
+        var field = document.createElement('canvas');
+        field.id = FieldPosition.id;
+        field.style.width = FieldSize.fieldSize + "px";
+        field.style.height = FieldSize.fieldSize + "px";
+        field.style.left = FieldSize.fieldSize * FieldPosition.x + "px";
+        field.style.top = FieldSize.fieldSize * FieldPosition.y + "px";
+        field.style.position = "absolute";
+        document.getElementById("drawingTable").appendChild(field);
+        field.onclick = function () { this.style.backgroundColor = document.getElementById("statusCanvas1").style.backgroundColor }
     }
 }
 class Table {
@@ -151,18 +142,14 @@ class Options {
         };
     }    
 }
- 
 class Main {
-
     startTheProgram() {
-        
         var colorTable = new ColorTable();
         colorTable.DisplayTheColorTable();
         var options = new Options();
         options.SetTheRangeSlider();
     }
 }
-
 var m = new Main();
 m.startTheProgram();
 
