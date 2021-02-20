@@ -20,7 +20,7 @@ class Field {
         field.style.left = FieldSize.fieldSize * FieldPosition.x + "px";
         field.style.top = FieldSize.fieldSize * FieldPosition.y + "px";
         field.style.position = "absolute";
-        field.style.backgroundColor="white";
+        field.style.backgroundColor = "rgb(255,255,255)";
         document.getElementById("drawingTable").appendChild(field);
         field.onclick = function () { this.style.backgroundColor = document.getElementById("statusCanvas1").style.backgroundColor }
     }
@@ -51,21 +51,26 @@ class Table {
                 newArray[i].push(counter);
 
                 counter++;
-                if (i % 2 == 0 && j % 2 == 0) {
-                    document.getElementById(newArray[i][j]).style.background = "#C8E0E1";
-                }
-                if (i % 2 != 0 && j % 2 != 0) {
-                    document.getElementById(newArray[i][j]).style.background = "#C8E0E1";
+                if (i % 2 == 0 && j % 2 == 0 || i % 2 != 0 && j % 2 != 0) {
+                    document.getElementById(newArray[i][j]).style.background = "rgb(216, 212, 212)";
                 }
             }
         }
-        console.log(counter);
-        console.log(newArray[0][1]);
-
-
-
+        //set the drawTable's border's size
         document.getElementById("drawingTable").style.height = this.yTableSize * 20 + "px";
         document.getElementById("drawingTable").style.width = this.xTableSize * 20 + "px";
+
+
+        // var colorArray=[];
+        // for (var i = 0; i < this.yTableSize; i++) {
+        //     colorArray.push([]);
+        //     for (var j = 0; j < this.xTableSize; j++) {
+        //         colorArray[i].push(document.getElementById(newArray[i][j]).style.backgroundColor);
+        //     }
+        // }
+        // console.log(colorArray)
+
+
 
     }
 }
