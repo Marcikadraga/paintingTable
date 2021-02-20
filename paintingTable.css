@@ -61,6 +61,7 @@ background: linear-gradient( #414345, #232526);
     position:absolute;
     left:25%;
     top:10%;
+    visibility: hidden;
 }
 
 #colorPalette{

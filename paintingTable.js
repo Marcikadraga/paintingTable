@@ -29,7 +29,6 @@ class Table {
         this.array = [];
         this.yTableSize = yTableSize;
         this.xTableSize = xTableSize;
-
     }
 
 
@@ -45,10 +44,28 @@ class Table {
         }
         for (var i = 0; i < this.yTableSize * this.xTableSize; i++) {
             document.getElementById(i).style.backgroundColor = "white";
-            if (i % 2 == 0) {
-                document.getElementById(i).style.backgroundColor = "#C8E0E1";
+        }
+        var newArray = [];
+        var counter = 0;
+        for (var i = 0; i < this.yTableSize; i++) {
+            newArray.push([]);
+            for (var j = 0; j < this.xTableSize; j++) {
+                newArray[i].push(counter);
+
+                counter++;
+                if (i % 2 == 0 && j % 2 == 0) {
+                    document.getElementById(newArray[i][j]).style.background = "#C8E0E1";
+                }
+                if (i % 2 != 0 && j % 2 != 0) {
+                    document.getElementById(newArray[i][j]).style.background = "#C8E0E1";
+                }
             }
         }
+        console.log(counter);
+        console.log(newArray[0][1]);
+
+
+
         document.getElementById("drawingTable").style.height = this.yTableSize * 20 + "px";
         document.getElementById("drawingTable").style.width = this.xTableSize * 20 + "px";
 
@@ -86,7 +103,7 @@ class ColorField {
             for (var i = 5000; i < 5045; i++) {
                 document.getElementById(i).style.borderColor = "white";
             }
-            document.getElementById("rubber").style.borderColor = "white";
+
             this.style.border = "1px solid black";
             var currentColor = this.style.backgroundColor;
             document.getElementById("statusCanvas1").style.backgroundColor = currentColor;
@@ -131,15 +148,15 @@ class Options {
         slider1.oninput = function () {
             output1.innerHTML = this.value;
         }
-        
+
         this.CreateNewTable();
     }
 
-    CreateNewTable(){
+    CreateNewTable() {
         document.getElementById("clickMe").onclick = function () {
-            var canvasesLength=document.getElementById("drawingTable").getElementsByTagName("canvas").length;
-            for(var i=0;i<canvasesLength;i++)
-            {
+            var canvasesLength = document.getElementById("drawingTable").getElementsByTagName("canvas").length;
+            document.getElementById("drawingTable").style.visibility = "visible";
+            for (var i = 0; i < canvasesLength; i++) {
                 document.getElementById(i).remove();
             }
 
@@ -148,7 +165,7 @@ class Options {
             var t = new Table(y, x);
             t.DisplayTheTable();
         };
-    }    
+    }
 }
 class Main {
     startTheProgram() {
@@ -157,6 +174,7 @@ class Main {
         // var rubber= new Rubber();
         var options = new Options();
         options.SetTheRangeSlider();
+
     }
 }
 var m = new Main();
