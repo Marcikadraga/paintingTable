@@ -33,6 +33,15 @@ background: linear-gradient( #414345, #232526);
     left:8px;
     top:30px
 }
+/* #rubber{
+  background-color: white;
+  position:relative;
+  width:40px;
+  height:40px;
+  border:1px solid white ;
+  left:8px;
+  top:30px
+} */
 #options{
     width:200px;
     height:700px;

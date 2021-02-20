@@ -1,4 +1,3 @@
-
 class FieldPosition {
     constructor(y, x, id) {
         this.y = y;
@@ -54,9 +53,6 @@ class Table {
         document.getElementById("drawingTable").style.width = this.xTableSize * 20 + "px";
 
     }
-
-
-
 }
 class ColorField {
     get colors() {
@@ -90,14 +86,25 @@ class ColorField {
             for (var i = 5000; i < 5045; i++) {
                 document.getElementById(i).style.borderColor = "white";
             }
+            document.getElementById("rubber").style.borderColor = "white";
             this.style.border = "1px solid black";
-            var lofasz = this.style.backgroundColor;
-            document.getElementById("statusCanvas1").style.backgroundColor = lofasz;
+            var currentColor = this.style.backgroundColor;
+            document.getElementById("statusCanvas1").style.backgroundColor = currentColor;
         }
     }
-
-
 }
+// class Rubber{
+//     constructor()
+//     {
+//         document.getElementById("rubber").onclick = function () {
+//             for (var i = 5000; i < 5045; i++) {
+//                 document.getElementById(i).style.borderColor = "white";
+//             }
+//             this.style.border = "1px solid black";
+//             document.getElementById("statusCanvas1").style.backgroundColor = "white";
+//         }
+//     }
+// }
 class ColorTable {
     DisplayTheColorTable() {
         var id = 5000;
@@ -124,6 +131,7 @@ class Options {
         slider1.oninput = function () {
             output1.innerHTML = this.value;
         }
+        
         this.CreateNewTable();
     }
 
@@ -146,6 +154,7 @@ class Main {
     startTheProgram() {
         var colorTable = new ColorTable();
         colorTable.DisplayTheColorTable();
+        // var rubber= new Rubber();
         var options = new Options();
         options.SetTheRangeSlider();
     }
