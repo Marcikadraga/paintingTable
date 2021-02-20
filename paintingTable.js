@@ -20,6 +20,7 @@ class Field {
         field.style.left = FieldSize.fieldSize * FieldPosition.x + "px";
         field.style.top = FieldSize.fieldSize * FieldPosition.y + "px";
         field.style.position = "absolute";
+        field.style.backgroundColor="white";
         document.getElementById("drawingTable").appendChild(field);
         field.onclick = function () { this.style.backgroundColor = document.getElementById("statusCanvas1").style.backgroundColor }
     }
@@ -41,9 +42,6 @@ class Table {
                 this.array.push(new Field(new FieldPosition(i, j, id), new FieldSize(fieldsize)))
                 id++
             }
-        }
-        for (var i = 0; i < this.yTableSize * this.xTableSize; i++) {
-            document.getElementById(i).style.backgroundColor = "white";
         }
         var newArray = [];
         var counter = 0;
