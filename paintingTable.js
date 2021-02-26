@@ -68,6 +68,7 @@ class Table {
                 colorArray[i].push(document.getElementById(newArray[i][j]).style.backgroundColor);
             }
         }
+        document.getElementById('data').value=colorArray;
         console.log(colorArray)
 
 
