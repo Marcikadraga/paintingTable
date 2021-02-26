@@ -61,14 +61,14 @@ class Table {
         document.getElementById("drawingTable").style.width = this.xTableSize * 20 + "px";
 
 
-        // var colorArray=[];
-        // for (var i = 0; i < this.yTableSize; i++) {
-        //     colorArray.push([]);
-        //     for (var j = 0; j < this.xTableSize; j++) {
-        //         colorArray[i].push(document.getElementById(newArray[i][j]).style.backgroundColor);
-        //     }
-        // }
-        // console.log(colorArray)
+        var colorArray = [];
+        for (var i = 0; i < this.yTableSize; i++) {
+            colorArray.push([]);
+            for (var j = 0; j < this.xTableSize; j++) {
+                colorArray[i].push(document.getElementById(newArray[i][j]).style.backgroundColor);
+            }
+        }
+        console.log(colorArray)
 
 
 
@@ -136,6 +136,8 @@ class ColorTable {
         }
     }
 }
+
+
 class Options {
     SetTheRangeSlider() {
         var slider0 = document.getElementById("myRange0");
@@ -153,10 +155,12 @@ class Options {
         }
 
         this.CreateNewTable();
+        this.DisplayTheSaveTable();
+
     }
 
     CreateNewTable() {
-        document.getElementById("clickMe").onclick = function () {
+        document.getElementById("create").onclick = function () {
             var canvasesLength = document.getElementById("drawingTable").getElementsByTagName("canvas").length;
             document.getElementById("drawingTable").style.visibility = "visible";
             for (var i = 0; i < canvasesLength; i++) {
@@ -169,7 +173,15 @@ class Options {
             t.DisplayTheTable();
         };
     }
+    DisplayTheSaveTable() {
+        document.getElementById("save").onclick = function () {
+            document.getElementById("saveTable").style.visibility = "visible";
+            document.getElementById("drawingTable").style.visibility="hidden";
+            document.getElementById("create").disabled=true;
+        }
+    }
 }
+
 class Main {
     startTheProgram() {
         var colorTable = new ColorTable();
@@ -177,7 +189,6 @@ class Main {
         // var rubber= new Rubber();
         var options = new Options();
         options.SetTheRangeSlider();
-
     }
 }
 var m = new Main();

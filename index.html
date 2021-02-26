@@ -13,6 +13,23 @@
 
 <body>
     <div id="table">
+        <div id="saveTable">
+            <div id="box">
+                <form class="container" method="post" action="/">
+                    <div>
+                        <label style="color: white;">name: </label>
+                        <input style="width: 250px;font-size: 17px;" name="fileName" >
+                    </div>
+                    <br>
+                    <div>
+                        <textarea name="data" id="data" cols="30" rows="10"
+                            style="width: 500px; height: 500px;font-size: 17px;overflow-y:auto;"></textarea>
+                    </div>
+                    <br>
+                    <button class="button" onclick="whriteThis()">SAVE </button>
+                </form>
+            </div>
+        </div>
         <div id="status">
             <canvas id="statusCanvas1"></canvas>
             <!-- <canvas id="rubber">R</canvas> -->
@@ -29,7 +46,8 @@
                 <input type="range" min="1" max="39" value="21" class="slider1" id="myRange1">
                 <p style="color: white;">Y: <span id="demo1"></span></p>
               </div>
-              <button class="button" id="clickMe">Create</button>
+              <button class="button" id="create">Create</button>
+              <button class="button" id="save">Save</button>
         </div>
         <div id="drawingTable"></div>
         <div id="colorPalette"></div>
