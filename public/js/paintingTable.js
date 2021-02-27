@@ -155,6 +155,7 @@ class Options {
             output1.innerHTML = this.value;
         }
 
+        document.getElementById("save").disabled=true;
         this.CreateNewTable();
         this.DisplayTheSaveTable();
         this.CloseTheSaveTable();
@@ -168,6 +169,7 @@ class Options {
             for (var i = 0; i < canvasesLength; i++) {
                 document.getElementById(i).remove();
             }
+            document.getElementById("save").disabled=false;
 
             var x = document.getElementById("demo0").innerHTML;
             var y = document.getElementById("demo1").innerHTML;
@@ -180,6 +182,7 @@ class Options {
             document.getElementById("saveTable").style.visibility = "visible";
             document.getElementById("drawingTable").style.visibility="hidden";
             document.getElementById("create").disabled=true;
+            document.getElementById("save").disabled=true;
         }
     }
     CloseTheSaveTable()
@@ -189,6 +192,7 @@ class Options {
             document.getElementById("saveTable").style.disabled="true";
             document.getElementById("drawingTable").style.visibility="visible";
             document.getElementById("create").disabled=false;
+            document.getElementById("save").disabled=true;
             
         }
     }
