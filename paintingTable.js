@@ -157,6 +157,7 @@ class Options {
 
         this.CreateNewTable();
         this.DisplayTheSaveTable();
+        this.CloseTheSaveTable();
 
     }
 
@@ -179,6 +180,16 @@ class Options {
             document.getElementById("saveTable").style.visibility = "visible";
             document.getElementById("drawingTable").style.visibility="hidden";
             document.getElementById("create").disabled=true;
+        }
+    }
+    CloseTheSaveTable()
+    {
+        document.getElementById("cancel").onclick = function () {
+            document.getElementById("saveTable").style.visibility = "hidden";
+            document.getElementById("saveTable").style.disabled="true";
+            document.getElementById("drawingTable").style.visibility="visible";
+            document.getElementById("create").disabled=false;
+            
         }
     }
 }
