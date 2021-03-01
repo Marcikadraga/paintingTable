@@ -59,17 +59,23 @@ class Table {
         //set the drawTable's border's size
         document.getElementById("drawingTable").style.height = this.yTableSize * 20 + "px";
         document.getElementById("drawingTable").style.width = this.xTableSize * 20 + "px";
-
-
+        var ctx = document.createElement('canvas').getContext('2d');
+        var color;
         var colorArray = [];
         for (var i = 0; i < this.yTableSize; i++) {
             colorArray.push([]);
             for (var j = 0; j < this.xTableSize; j++) {
-                colorArray[i].push(document.getElementById(newArray[i][j]).style.backgroundColor);
+                // //https://stackoverflow.com/questions/5999209/how-to-get-the-background-color-code-of-an-element-in-hex
+                color=document.getElementById(newArray[i][j]).style.backgroundColor;
+                ctx.strokeStyle=color;
+                var hexColor = ctx.strokeStyle;
+                colorArray[i].push(hexColor);
+                // colorArray[i].push(document.getElementById(newArray[i][j]).style.backgroundColor);
             }
         }
-        document.getElementById('data').value=colorArray;
+        document.getElementById('data').value=JSON.stringify(colorArray);
         console.log(colorArray)
+        console.log(JSON.stringify(colorArray))
 
 
 
