@@ -33,6 +33,12 @@
                 <button class="saveWindowButton" id="cancel">CANCEL </button>
             </div>
         </div>
+        <div id="loadTable">
+           <ul id="LoadTableUl">
+
+           </ul>
+            
+        </div>
         <div id="status">
             <canvas id="statusCanvas1"></canvas>
             <!-- <canvas id="rubber">R</canvas> -->
@@ -49,18 +55,23 @@
                 <input type="range" min="1" max="39" value="21" class="slider1" id="myRange1">
                 <p style="color: white;">Y: <span id="demo1"></span></p>
               </div>
-              <br>
-              <br>
+              
               <button class="button" id="create">Create</button>
+              <br>
+              <br>
+              <br>
+              <br>
               <button class="button" id="save">Save</button>
+              <button class="button" id="load">Load</button>
         </div>
         <div id="drawingTable"></div>
         <div id="colorPalette"></div>
     </div>
     <script>
-       $.getJSON( "/js/Data.json", function( json ) {
-  console.log( "JSON Data: " + json[ 0 ].Name );
- });
+//        $.getJSON( "/js/Data.json", function( json ) {
+//          console.log( Object.keys(json).length) ;
+//   console.log( "JSON Data: " + json.data.Name );
+//  });
     </script>
     <script src="/js/paintingTable.js"></script>
 </body>

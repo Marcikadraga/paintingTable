@@ -62,48 +62,40 @@ class Table {
         var ctx = document.createElement('canvas').getContext('2d');
         var color;
         var colorArray = [];
-        var colorArrayAsSrting="[";
+        var colorArrayAsSrting = "[";
         for (var i = 0; i < this.yTableSize; i++) {
             colorArray.push([]);
             for (var j = 0; j < this.xTableSize; j++) {
                 // //https://stackoverflow.com/questions/5999209/how-to-get-the-background-color-code-of-an-element-in-hex
-                color=document.getElementById(newArray[i][j]).style.backgroundColor;
-                ctx.strokeStyle=color;
+                color = document.getElementById(newArray[i][j]).style.backgroundColor;
+                ctx.strokeStyle = color;
                 var hexColor = ctx.strokeStyle;
                 colorArray[i].push(hexColor);
-                if(j==0)
-                {
-                    colorArrayAsSrting+="["
+                if (j == 0) {
+                    colorArrayAsSrting += "["
                 }
-                if(j==this.xTableSize-1)
-                {
-                    colorArrayAsSrting+="'"+hexColor+"'";
+                if (j == this.xTableSize - 1) {
+                    colorArrayAsSrting += "'" + hexColor + "'";
                 }
-                else{
-                    colorArrayAsSrting+="'"+hexColor+"'"+","
+                else {
+                    colorArrayAsSrting += "'" + hexColor + "'" + ","
                 }
 
-                if(j==this.xTableSize-1)
-                {
-                    colorArrayAsSrting+="]"
+                if (j == this.xTableSize - 1) {
+                    colorArrayAsSrting += "]"
                 }
-                if(j==this.xTableSize-1 &&i!=this.yTableSize-1)
-                {
-                    colorArrayAsSrting+=",";
+                if (j == this.xTableSize - 1 && i != this.yTableSize - 1) {
+                    colorArrayAsSrting += ",";
                 }
-                if(j==this.xTableSize-1 && i==this.yTableSize-1)
-                {
-                    colorArrayAsSrting+="]"
+                if (j == this.xTableSize - 1 && i == this.yTableSize - 1) {
+                    colorArrayAsSrting += "]"
                 }
             }
         }
-        
-        document.getElementById('data').value=colorArrayAsSrting;
-        var ga=JSON.stringify(colorArrayAsSrting);
+
+        document.getElementById('data').value = colorArrayAsSrting;
+        var ga = JSON.stringify(colorArrayAsSrting);
         console.log(ga)
-        
-
-
 
     }
 }
@@ -187,10 +179,11 @@ class Options {
             output1.innerHTML = this.value;
         }
 
-        document.getElementById("save").disabled=true;
+        document.getElementById("save").disabled = true;
         this.CreateNewTable();
         this.DisplayTheSaveTable();
         this.CloseTheSaveTable();
+        this.DisplayTheLoadTable();
 
     }
 
@@ -201,7 +194,7 @@ class Options {
             for (var i = 0; i < canvasesLength; i++) {
                 document.getElementById(i).remove();
             }
-            document.getElementById("save").disabled=false;
+            document.getElementById("save").disabled = false;
 
             var x = document.getElementById("demo0").innerHTML;
             var y = document.getElementById("demo1").innerHTML;
@@ -212,20 +205,54 @@ class Options {
     DisplayTheSaveTable() {
         document.getElementById("save").onclick = function () {
             document.getElementById("saveTable").style.visibility = "visible";
-            document.getElementById("drawingTable").style.visibility="hidden";
-            document.getElementById("create").disabled=true;
-            document.getElementById("save").disabled=true;
+            document.getElementById("drawingTable").style.visibility = "hidden";
+            document.getElementById("create").disabled = true;
+            document.getElementById("save").disabled = true;
         }
     }
-    CloseTheSaveTable()
-    {
+    CloseTheSaveTable() {
         document.getElementById("cancel").onclick = function () {
             document.getElementById("saveTable").style.visibility = "hidden";
-            document.getElementById("saveTable").style.disabled="true";
-            document.getElementById("drawingTable").style.visibility="visible";
-            document.getElementById("create").disabled=false;
-            document.getElementById("save").disabled=true;
-            
+            document.getElementById("saveTable").style.disabled = "true";
+            document.getElementById("drawingTable").style.visibility = "visible";
+            document.getElementById("create").disabled = false;
+            document.getElementById("save").disabled = true;
+
+        }
+    }
+    DisplayTheLoadTable() {
+        document.getElementById("load").onclick = function () {
+            document.getElementById("loadTable").style.visibility = "visible";
+
+            var ga;
+            $.getJSON("/js/Data.json", function (json) {
+                console.log(Object.keys(json).length);
+                ga = Object.keys(json).length;
+
+                for (var i = 0; i < ga; i++) {
+                    var dataWindow = document.createElement('li');
+                    dataWindow.style.position = "relative";
+                    // dataWindow.style.height = "15px";
+                    // dataWindow.style.width = "300px";
+                    dataWindow.id = 1000 + i;
+                    document.getElementById("LoadTableUl").appendChild(dataWindow);
+                    dataWindow.style.backgroundColor = "red";
+                    dataWindow.innerHTML = json[i].Name;
+                }
+                for (var i = 0; i < ga; i++) {
+                    var button = document.createElement('button');
+                    document.getElementById(1000+i).appendChild(button);
+                    button.style.position="relative";
+                    button.style.left="300px";
+                    button.style.width="50px";
+                    button.style.height="30px";
+                    button.innerHTML="open";
+                    
+                }
+            });
+
+
+
         }
     }
 }
