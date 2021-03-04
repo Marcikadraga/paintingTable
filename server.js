@@ -29,7 +29,7 @@ function savethat(value) {
     }
     let fs = require('fs');
     jsondata = JSON.stringify(obj);
-    fs.writeFile("Data.json", jsondata, function (err) {
+    fs.writeFile("/js/Data.json", jsondata, function (err) {
         if (err) {
             console.log(err);
         }

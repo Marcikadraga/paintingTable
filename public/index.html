@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="paintingTable.js" defer></script> -->
     <link rel="stylesheet" href="/css/paintingTable.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Document</title>
 
 </head>
@@ -56,6 +57,11 @@
         <div id="drawingTable"></div>
         <div id="colorPalette"></div>
     </div>
+    <script>
+       $.getJSON( "/js/Data.json", function( json ) {
+  console.log( "JSON Data: " + json[ 0 ].Name );
+ });
+    </script>
     <script src="/js/paintingTable.js"></script>
 </body>
 
