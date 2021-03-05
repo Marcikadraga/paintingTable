@@ -29,7 +29,7 @@ function savethat(value) {
     }
     let fs = require('fs');
     jsondata = JSON.stringify(obj);
-    fs.writeFile("/js/Data.json", jsondata, function (err) {
+    fs.writeFile("Data.json", jsondata, function (err) {
         if (err) {
             console.log(err);
         }
@@ -69,7 +69,7 @@ app.post("/", function (req, res) {
         "Data": req.body.data,
     })
 
-    SaveJSON('Data.json', data);
+    SaveJSON('./public/js/Data.json', data);
 
     newNote.save(function (err, doc) {
         if (err) return console.error(err);

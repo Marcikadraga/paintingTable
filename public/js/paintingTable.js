@@ -62,7 +62,7 @@ class Table {
         var ctx = document.createElement('canvas').getContext('2d');
         var color;
         var colorArray = [];
-        var colorArrayAsSrting = "[";
+        
         for (var i = 0; i < this.yTableSize; i++) {
             colorArray.push([]);
             for (var j = 0; j < this.xTableSize; j++) {
@@ -71,31 +71,12 @@ class Table {
                 ctx.strokeStyle = color;
                 var hexColor = ctx.strokeStyle;
                 colorArray[i].push(hexColor);
-                if (j == 0) {
-                    colorArrayAsSrting += "["
-                }
-                if (j == this.xTableSize - 1) {
-                    colorArrayAsSrting += "'" + hexColor + "'";
-                }
-                else {
-                    colorArrayAsSrting += "'" + hexColor + "'" + ","
-                }
-
-                if (j == this.xTableSize - 1) {
-                    colorArrayAsSrting += "]"
-                }
-                if (j == this.xTableSize - 1 && i != this.yTableSize - 1) {
-                    colorArrayAsSrting += ",";
-                }
-                if (j == this.xTableSize - 1 && i == this.yTableSize - 1) {
-                    colorArrayAsSrting += "]"
-                }
             }
         }
-
-        document.getElementById('data').value = colorArrayAsSrting;
-        var ga = JSON.stringify(colorArrayAsSrting);
-        console.log(ga)
+        
+        document.getElementById('data').value = JSON.stringify(colorArray);
+        console.log(colorArray);
+        
 
     }
 }
