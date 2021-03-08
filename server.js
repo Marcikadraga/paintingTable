@@ -14,13 +14,13 @@ function LoadJSON(filename = '') {
     return JSON.parse(
         fs.existsSync(filename)
             ? fs.readFileSync(filename).toString()
-            : '""'
+            : '[]'
     )
 }
 function SaveJSON(filename = '', json = '""') {
     return fs.writeFileSync(filename, JSON.stringify(json))
 }
-const data = LoadJSON('Data.json');
+
 
 function savethat(value) {
     let obj = {
@@ -64,9 +64,10 @@ app.post("/", function (req, res) {
         Data: req.body.data
     });
     //Json Save
+    const data = LoadJSON('./public/js/Data.json');
     data.push({
         "Name": req.body.fileName,
-        "Data": req.body.data,
+        "Data":JSON.parse(req.body.data),
     })
 
     SaveJSON('./public/js/Data.json', data);
